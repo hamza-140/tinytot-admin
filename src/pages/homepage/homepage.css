@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  font-family: 'PF';
+}
+.body {
+  flex: 1; /* This will make the dashboard-body fill the remaining space */
+}
+
+.content-wrapper {
+  margin-left: 50px; /* Adjust this value to match the width of your sidebar */
+}
