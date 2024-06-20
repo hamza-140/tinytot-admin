@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {firestore} from '../../../firebase.config';
 import {doc, getDoc, updateDoc} from 'firebase/firestore';
 
@@ -8,6 +8,7 @@ function LessonEdit() {
   const [url, setUrl] = useState('');
   const [svg, setSvg] = useState('');
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDocument = async () => {
@@ -29,6 +30,7 @@ function LessonEdit() {
     const docRef = doc(firestore, 'alphabetVideos', letter);
     await updateDoc(docRef, {url, svg});
     alert('Document updated successfully!');
+    navigate('/english/lessons');
   };
 
   if (loading) {

@@ -46,18 +46,20 @@ function Homepage() {
             </div>
 
             {/* Islamiyat Card */}
-            <div className="group hover:cursor-pointer bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
-              <div className="px-8 py-10">
-                <div className="w-[100px] h-[100px] rounded-full rounded-tl-none mb-4 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-lime-900 transition-all">
-                  <img alt="img" src={islamiyat}></img>
+            <Link to="/islam">
+              <div className="group hover:cursor-pointer bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
+                <div className="px-8 py-10">
+                  <div className="w-[100px] h-[100px] rounded-full rounded-tl-none mb-4 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-lime-900 transition-all">
+                    <img alt="img" src={islamiyat}></img>
+                  </div>
+                  <div className="text-white uppercase font-bold text-xl">
+                    Islamiyat
+                  </div>
                 </div>
-                <div className="text-white uppercase font-bold text-xl">
-                  Islamiyat
-                </div>
+                <div className="h-4 w-full bg-gradient-to-r from-transparent via-lime-500 to-transparent group-hover:blur-xl blur-2xl m-auto rounded transition-all absolute bottom-0 duration-300"></div>
+                <div className="h-0.5 group-hover:w-full bg-gradient-to-l  via-lime-900 group-hover:via-lime-500 w-[70%] m-auto rounded transition-all hover:duration-300"></div>
               </div>
-              <div className="h-4 w-full bg-gradient-to-r from-transparent via-lime-500 to-transparent group-hover:blur-xl blur-2xl m-auto rounded transition-all absolute bottom-0 duration-300"></div>
-              <div className="h-0.5 group-hover:w-full bg-gradient-to-l  via-lime-900 group-hover:via-lime-500 w-[70%] m-auto rounded transition-all hover:duration-300"></div>
-            </div>
+            </Link>
 
             {/* Workbook Card */}
             <Link to="/workbook">
