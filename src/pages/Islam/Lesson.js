@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {firestore} from '../../firebase.config';
 import {collection, doc, getDoc, setDoc, getDocs} from 'firebase/firestore';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Lesson() {
   const [islamData, setIslamData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Get the navigate function
   const [size, setSize] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
   const [newUrl, setNewUrl] = useState('');
@@ -117,11 +118,23 @@ function Lesson() {
           </Link>
         ))}
       </div>
-      <button
-        style={{borderRadius: 8, padding: 10, marginTop: 20}}
-        onClick={() => setModalVisible(true)}>
-        <span style={{fontWeight: 'bold'}}>Add New Lesson</span>
-      </button>
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <button
+          style={{borderRadius: 8, padding: 10, marginTop: 20, marginRight: 10}}
+          onClick={() => setModalVisible(true)}>
+          <span style={{fontWeight: 'bold'}}>Add New Lesson</span>
+        </button>
+        <button
+          style={{
+            borderRadius: 8,
+            backgroundColor: 'green',
+            padding: 10,
+            marginTop: 20,
+          }}
+          onClick={() => navigate('/homepage')}>
+          <span style={{fontWeight: 'bold'}}>Return Home</span>
+        </button>
+      </div>
 
       {modalVisible && (
         <div className="fixed inset-0 flex items-center justify-center z-50">

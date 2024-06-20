@@ -13,14 +13,8 @@ const sidebar_menu = [
   {
     id: 2,
     icon: ShippingIcon,
-    path: '/lesson',
-    title: 'Lessons',
-  },
-  {
-    id: 4,
-    icon: UserIcon,
-    path: '/profile',
-    title: 'My account',
+    path: '/progress',
+    title: 'Progress',
   },
 ];
 

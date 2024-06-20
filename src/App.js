@@ -31,6 +31,7 @@ import Workbook from './pages/Workbook/Workbook';
 import WorkbookAdd from './pages/Workbook/WorkbookAdd';
 import WorkbookEdit from './pages/Workbook/WorkbookEdit';
 import LessonIslamEdit from './pages/Islam/LessonEdit';
+import NotFoundPage from './Test';
 
 function App() {
   return (
@@ -57,10 +58,11 @@ function App() {
         <Route path="/english" element={<English />} />
         <Route path="/islam" element={<LessonIslam />} />
         <Route path="/islam/edit/:letter" element={<LessonIslamEdit />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/progress" element={<Dashboard />} />
         <Route path="/lesson" element={<Lesson />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/details" element={<Details />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );

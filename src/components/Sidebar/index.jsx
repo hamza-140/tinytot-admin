@@ -27,8 +27,14 @@ function SideBar({menu}) {
   return (
     <nav className="sidebar">
       <div className="sidebar-container">
-        <div className="sidebar-logo-container">
-          <img src={logo} alt="logo" />
+        <div className="sidebar-logo-container ">
+          <img
+            height={200}
+            width={200}
+            src={logo}
+            alt="logo"
+            className="  m-auto flex justify-center self-center "
+          />
         </div>
 
         <div className="sidebar-container">

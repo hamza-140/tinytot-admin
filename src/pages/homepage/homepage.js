@@ -10,11 +10,11 @@ import {Link} from 'react-router-dom';
 
 function Homepage() {
   return (
-    <div className="container">
+    <div className="container" style={{backgroundColor: '#5EB1BF'}}>
       <SideBar menu={sidebar_menu}></SideBar>
-      <div className="body">
+      <div className="body flex self-center justify-center">
         <div className="content-wrapper">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-2">
             {/* English Card */}
             <Link to="/english">
               <div className="group bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:cursor-pointer hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
