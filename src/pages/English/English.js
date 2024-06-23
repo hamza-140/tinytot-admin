@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 
 function English() {
   return (
-    <div className="flex flex-col items-center h-screen py-10">
+    <div
+      className="flex flex-col items-center h-screen py-10"
+      style={{backgroundColor: '#FFD700'}}>
       <h1 className="text-4xl font-bold mb-12">English Modules</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 px-4">
         {/* Lessons Card */}

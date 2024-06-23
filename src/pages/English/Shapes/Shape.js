@@ -34,7 +34,9 @@ function Shape() {
   }
 
   return (
-    <div className="flex flex-col items-center py-10">
+    <div
+      className="flex flex-col items-center py-10"
+      style={{backgroundColor: '#FFD700', height: '100vh'}}>
       <h1 className="text-4xl font-bold mb-12">Shapes</h1>
       <Link
         to="/english/shapes/add"

@@ -7,75 +7,70 @@ import math from '../../assets/images/mathbook.png';
 import islamiyat from '../../assets/images/islambook.png';
 import workbook from '../../assets/images/workbook.png';
 import {Link} from 'react-router-dom';
+import Navbar from './Navbar';
 
 function Homepage() {
   return (
-    <div className="container" style={{backgroundColor: '#5EB1BF'}}>
+    <div
+      className="container"
+      style={{backgroundColor: '#FFF', height: '100vh'}}>
       <SideBar menu={sidebar_menu}></SideBar>
-      <div className="body flex self-center justify-center">
-        <div className="content-wrapper">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-2">
-            {/* English Card */}
-            <Link to="/english">
-              <div className="group bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:cursor-pointer hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
-                <div className="px-8 py-10">
-                  <div className="w-[100px] h-[100px] rounded-full rounded-tl-none mb-4 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-lime-900 transition-all">
-                    <img alt="img" src={english}></img>
-                  </div>
-                  <div className="text-white uppercase font-bold text-xl">
-                    English
-                  </div>
-                </div>
-                <div className="h-4 w-full bg-gradient-to-r from-transparent via-lime-500 to-transparent group-hover:blur-xl blur-2xl m-auto rounded transition-all absolute bottom-0 duration-300"></div>
-                <div className="h-0.5 group-hover:w-full bg-gradient-to-l  via-lime-900 group-hover:via-lime-500 w-[70%] m-auto rounded transition-all hover:duration-300"></div>
-              </div>
-            </Link>
+      <div className="body">
+        {/* <Navbar></Navbar> */}
 
-            {/* Math Card */}
-            <div className="group bg-gradient-to-tl hover:cursor-pointer from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
-              <div className="px-8 py-10">
-                <div className="w-[100px] h-[100px] rounded-full rounded-tl-none mb-4 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-lime-900 transition-all">
-                  <img alt="img" src={math}></img>
+        <div className="flex justify-center items-center">
+          <div className="content-wrapper">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Link to="/english">
+                <div className="group card hover:cursor-pointer">
+                  <div className="card-inner">
+                    <div className="flex justify-center mx-auto">
+                      <img
+                        alt="English"
+                        src={english}
+                        className="card-image"></img>
+                    </div>
+                    <div className="card-text">English</div>
+                  </div>
                 </div>
-                <div className="text-white uppercase font-bold text-xl">
-                  Math
+              </Link>
+              <Link to="/math">
+                <div className="group card hover:cursor-pointer">
+                  <div className="card-inner">
+                    <div className="flex justify-center mx-auto">
+                      <img alt="Math" src={math} className="card-image"></img>
+                    </div>
+                    <div className="card-text">Math</div>
+                  </div>
                 </div>
-              </div>
-              <div className="h-4 w-full bg-gradient-to-r from-transparent via-lime-500 to-transparent group-hover:blur-xl blur-2xl m-auto rounded transition-all absolute bottom-0 duration-300"></div>
-              <div className="h-0.5 group-hover:w-full bg-gradient-to-l  via-lime-900 group-hover:via-lime-500 w-[70%] m-auto rounded transition-all hover:duration-300"></div>
+              </Link>
+              <Link to="/islam">
+                <div className="group card hover:cursor-pointer">
+                  <div className="card-inner">
+                    <div className="flex justify-center mx-auto">
+                      <img
+                        alt="Islamiyat"
+                        src={islamiyat}
+                        className="card-image"></img>
+                    </div>
+                    <div className="card-text">Islamiyat</div>
+                  </div>
+                </div>
+              </Link>
+              <Link to="/workbook">
+                <div className="group card hover:cursor-pointer">
+                  <div className="card-inner">
+                    <div className="flex justify-center mx-auto">
+                      <img
+                        alt="Workbook"
+                        src={workbook}
+                        className="card-image"></img>
+                    </div>
+                    <div className="card-text">Workbook</div>
+                  </div>
+                </div>
+              </Link>
             </div>
-
-            {/* Islamiyat Card */}
-            <Link to="/islam">
-              <div className="group hover:cursor-pointer bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
-                <div className="px-8 py-10">
-                  <div className="w-[100px] h-[100px] rounded-full rounded-tl-none mb-4 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-lime-900 transition-all">
-                    <img alt="img" src={islamiyat}></img>
-                  </div>
-                  <div className="text-white uppercase font-bold text-xl">
-                    Islamiyat
-                  </div>
-                </div>
-                <div className="h-4 w-full bg-gradient-to-r from-transparent via-lime-500 to-transparent group-hover:blur-xl blur-2xl m-auto rounded transition-all absolute bottom-0 duration-300"></div>
-                <div className="h-0.5 group-hover:w-full bg-gradient-to-l  via-lime-900 group-hover:via-lime-500 w-[70%] m-auto rounded transition-all hover:duration-300"></div>
-              </div>
-            </Link>
-
-            {/* Workbook Card */}
-            <Link to="/workbook">
-              <div className="group hover:cursor-pointer bg-gradient-to-tl from-gray-900 to-gray-950 hover:from-gray-800 hover:to-gray-950 border-r-2 border-t-2 border-gray-900 m-1 rounded-md overflow-hidden relative">
-                <div className="px-8 py-10">
-                  <div className="w-[100px] h-[100px] rounded-full rounded-tl-none mb-4 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-lime-900 transition-all">
-                    <img alt="img" src={workbook}></img>
-                  </div>
-                  <div className="text-white uppercase font-bold text-xl">
-                    Workbook
-                  </div>
-                </div>
-                <div className="h-4 w-full bg-gradient-to-r from-transparent via-lime-500 to-transparent group-hover:blur-xl blur-2xl m-auto rounded transition-all absolute bottom-0 duration-300"></div>
-                <div className="h-0.5 group-hover:w-full bg-gradient-to-l  via-lime-900 group-hover:via-lime-500 w-[70%] m-auto rounded transition-all hover:duration-300"></div>
-              </div>
-            </Link>
           </div>
         </div>
       </div>

@@ -1,11 +1,51 @@
 .container {
   display: flex;
-  font-family: 'PF';
+  height: 100vh;
+  background-color: #5eb1bf;
 }
+
 .body {
-  flex: 1; /* This will make the dashboard-body fill the remaining space */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-wrapper {
-  margin-left: 50px; /* Adjust this value to match the width of your sidebar */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: linear-gradient(145deg, #1e1e1e, #333333);
+  border-radius: 15px;
+  /* box-shadow: 5px 5px 15px #000000, -5px -5px 15px #4d4d4d; */
+  overflow: hidden;
+  width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 10px 10px 20px #000000, -10px -10px 20px #4d4d4d;
+}
+
+.card-inner {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
