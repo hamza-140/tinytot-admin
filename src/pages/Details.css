@@ -1,44 +1,53 @@
+/* Add to your existing CSS file */
+
 .details-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #f0f0f0;
+  padding: 2rem;
+  background-color: #f0f2f5;
   height: 100vh;
 }
 
 .details-card {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 400px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
+  max-width: 800px;
 }
 
 .details-title {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .details-label {
   font-weight: bold;
-  color: #555;
 }
 
 .no-data {
-  color: #ff0000;
-  font-size: 18px;
-  text-align: center;
+  font-size: 1.25rem;
+  color: red;
 }
 
 .progress-section {
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
-.progress-section p {
-  margin: 10px 0;
+.chart-container {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+}
+
+.chart-container h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }

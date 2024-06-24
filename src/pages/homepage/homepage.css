@@ -1,9 +1,12 @@
+/* Container */
 .container {
   display: flex;
   height: 100vh;
-  background-color: #5eb1bf;
+  background-color: #f0f2f5; /* Light grey background */
+  color: #333;
 }
 
+/* Body */
 .body {
   flex: 1;
   display: flex;
@@ -11,6 +14,7 @@
   align-items: center;
 }
 
+/* Content Wrapper */
 .content-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -18,10 +22,11 @@
   justify-content: center;
 }
 
+/* Card */
 .card {
-  background: linear-gradient(145deg, #1e1e1e, #333333);
+  background: #ffffff;
   border-radius: 15px;
-  /* box-shadow: 5px 5px 15px #000000, -5px -5px 15px #4d4d4d; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 200px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -29,7 +34,7 @@
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 10px 10px 20px #000000, -10px -10px 20px #4d4d4d;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-inner {
@@ -37,15 +42,96 @@
   text-align: center;
 }
 
+/* Card Image */
 .card-image {
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
 }
 
+/* Card Text */
 .card-text {
-  color: #ffffff;
+  color: #333;
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+/* Sidebar */
+.sidebar {
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  background-image: linear-gradient(
+    to bottom,
+    #004d40,
+    #00796b,
+    #009688
+  ); /* Teal gradient */
+}
+
+.sidebar-logo-container {
+  display: flex;
+  align-items: center;
+  padding: 2em;
+}
+
+.sidebar-logo-container img {
+  width: 100%;
+}
+
+.sidebar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-items {
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar-item {
+  padding: 1.5em;
+  padding-left: 2em;
+  display: flex;
+  color: #ffffff;
+  list-style: none;
+  text-decoration: none;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: #004d40;
+}
+
+.sidebar-item-active {
+  background-color: #004d40;
+}
+
+.sidebar-item-icon {
+  width: 20px;
+}
+
+.sidebar-item-label {
+  font-size: small;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+/* Footer */
+.sidebar-footer {
+  padding: 1.5em;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }

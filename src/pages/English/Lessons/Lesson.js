@@ -37,6 +37,13 @@ function Lesson() {
     fetchAlphabetData();
   }, []);
 
+  const truncateUrl = url => {
+    return url.length > 10 ? `${url.slice(0, 10)}...` : url;
+  };
+  const truncateSvg = url => {
+    return url.length > 30 ? `${url.slice(0, 30)}...` : url;
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -46,7 +53,7 @@ function Lesson() {
   }
   return (
     <div
-      style={{backgroundColor: '#FFD700'}}
+      style={{backgroundColor: '#f0f2f5'}}
       className="flex flex-col items-center py-10">
       <h1 className="text-4xl font-bold mb-12">Alphabet Videos</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
@@ -63,13 +70,13 @@ function Lesson() {
               <span className="font-bold" style={{color: '#FFA500 '}}>
                 URL :
               </span>{' '}
-              {item.url}
+              {truncateUrl(item.url)}
             </p>
             <p className="text-white">
               <span className="font-bold" style={{color: '#FFA500 '}}>
                 SVG :
               </span>{' '}
-              {item.svg}
+              {truncateSvg(item.svg)}{' '}
             </p>
           </Link>
         ))}
