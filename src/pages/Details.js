@@ -4,6 +4,7 @@ import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import './Details.css'; // Importing the CSS file for styling
+import FeedbackForm from './Form';
 
 // Register Chart.js components and plugins
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
@@ -124,6 +125,7 @@ const Details = () => {
           </div>
         </div>
       </div>
+      <FeedbackForm parentEmail={parent.email} parentName={parent.name} />
     </div>
   );
 };

@@ -32,6 +32,7 @@ import WorkbookAdd from './pages/Workbook/WorkbookAdd';
 import WorkbookEdit from './pages/Workbook/WorkbookEdit';
 import LessonIslamEdit from './pages/Islam/LessonEdit';
 import NotFoundPage from './Test';
+import FeedbackForm from './pages/Form';
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
         <Route path="/lesson" element={<Lesson />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/details" element={<Details />} />
+        <Route path="/details/:email/form" element={<FeedbackForm />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
