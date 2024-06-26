@@ -1,21 +1,56 @@
 import React, {useState} from 'react';
-import {firestore} from '../../../firebase.config';
+import {firestore, storage} from '../../../firebase.config';
 import {doc, setDoc} from 'firebase/firestore';
+import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 import {useNavigate} from 'react-router-dom';
 
 function AnimalAdd() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [bg, setBg] = useState('');
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
+  const [sound, setSound] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const handleImageChange = e => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
+
+  const handleSoundChange = e => {
+    const file = e.target.files[0];
+    if (file) {
+      setSound(file);
+    }
+  };
 
   const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
     try {
+      let imageURL = '';
+      let soundURL = '';
+
+      if (image) {
+        const imageRef = ref(storage, `animals/${title}.png`);
+        await uploadBytes(imageRef, image);
+        imageURL = await getDownloadURL(imageRef);
+      }
+
+      if (sound) {
+        const soundRef = ref(storage, `sounds/${title}.mp3`);
+        await uploadBytes(soundRef, sound);
+        soundURL = await getDownloadURL(soundRef);
+      }
+
       const docRef = doc(firestore, 'animals', title);
-      await setDoc(docRef, {title, description, bg});
+      await setDoc(docRef, {title, description, bg, imageURL, soundURL});
+
       navigate('/english/animals');
     } catch (error) {
       console.error('Error adding animal:', error);
@@ -72,6 +107,39 @@ function AnimalAdd() {
               onChange={e => setBg(e.target.value)}
               className="w-full px-3 py-2 border rounded-lg"
               required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="image"
+              className="block text-gray-700 font-bold mb-2">
+              Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              onChange={handleImageChange}
+              className="w-full px-3 py-2 border rounded-lg"
+              accept="image/*"
+            />
+          </div>
+          {imagePreview && (
+            <div className="mb-4">
+              <img src={imagePreview} alt="Preview" className="w-full h-auto" />
+            </div>
+          )}
+          <div className="mb-4">
+            <label
+              htmlFor="sound"
+              className="block text-gray-700 font-bold mb-2">
+              Sound (MP3)
+            </label>
+            <input
+              type="file"
+              id="sound"
+              onChange={handleSoundChange}
+              className="w-full px-3 py-2 border rounded-lg"
+              accept="audio/mpeg"
             />
           </div>
           <button

@@ -1,20 +1,39 @@
 import React, {useState} from 'react';
-import {firestore} from '../../../firebase.config';
+import {firestore, storage} from '../../../firebase.config';
 import {doc, setDoc} from 'firebase/firestore';
+import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 import {useNavigate} from 'react-router-dom';
 
 function ShapeAdd() {
   const [title, setTitle] = useState('');
   const [svg, setSvg] = useState('');
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const handleImageChange = e => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
 
   const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
     try {
+      let imageURL = '';
+      if (image) {
+        const storageRef = ref(storage, `shapes/${title}`);
+        await uploadBytes(storageRef, image);
+        imageURL = await getDownloadURL(storageRef);
+      }
+
       const docRef = doc(firestore, 'shapes', title);
-      await setDoc(docRef, {title, svg});
+      await setDoc(docRef, {title, svg, imageURL});
+
       navigate('/english/shapes');
     } catch (error) {
       console.error('Error adding shape:', error);
@@ -59,6 +78,25 @@ function ShapeAdd() {
               required
             />
           </div>
+          <div className="mb-4">
+            <label
+              htmlFor="image"
+              className="block text-gray-700 font-bold mb-2">
+              Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              onChange={handleImageChange}
+              className="w-full px-3 py-2 border rounded-lg"
+              accept="image/*"
+            />
+          </div>
+          {imagePreview && (
+            <div className="mb-4">
+              <img src={imagePreview} alt="Preview" className="w-full h-auto" />
+            </div>
+          )}
           <button
             type="submit"
             className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">

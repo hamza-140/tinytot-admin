@@ -7,8 +7,13 @@ import math from '../../assets/images/mathbook.png';
 import islamiyat from '../../assets/images/islambook.png';
 import workbook from '../../assets/images/workbook.png';
 import {Link} from 'react-router-dom';
-
+import {createClient} from '@supabase/supabase-js';
+const supabase = createClient(
+  'https://zgsejcpidljcdejqxxzt.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpnc2VqY3BpZGxqY2RlanF4eHp0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk0MTk1MjYsImV4cCI6MjAzNDk5NTUyNn0.Ltd6rV8howsUQwlGY55Inf1aXoZOqFXktUBfPLIjlQU',
+);
 function Homepage() {
+  console.log('homepage:', supabase.from('Users').select('*'));
   return (
     <div className="container">
       <SideBar menu={sidebar_menu}></SideBar>

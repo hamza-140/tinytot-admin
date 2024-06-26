@@ -37,10 +37,10 @@ function Workbook() {
   );
 
   return (
-    <div className="container  flex flex-col justify-center items-center mx-auto py-10">
-      <h1 className="text-4xl font-bold w-auto text-center">Workbook</h1>
-      <div className="bg-white w-[100%] text-center shadow-lg">
-        <div className="  space-x-4 py-4">
+    <div className="min-h-screen flex flex-col items-center bg-gray-100 py-10">
+      <h1 className="text-4xl font-bold text-center mb-6">Workbook</h1>
+      <div className="bg-white w-full max-w-4xl p-6 shadow-lg rounded-lg">
+        <div className="flex flex-wrap justify-center space-x-4 py-4">
           {quizzesData.map((subjectData, index) => (
             <button
               key={index}
@@ -69,7 +69,7 @@ function Workbook() {
           />
         </div>
       </div>
-      <div className="mt-24">
+      <div className="w-full max-w-4xl mt-8">
         {filteredQuizzes
           .filter(subjectData => subjectData.subject === activeSubject)
           .map((subjectData, index) => (

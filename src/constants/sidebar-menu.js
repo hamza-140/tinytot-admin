@@ -2,6 +2,7 @@ import DashboardIcon from '../assets/icons/dashboard.svg';
 import ShippingIcon from '../assets/icons/shipping.svg';
 import ProductIcon from '../assets/icons/product.svg';
 import UserIcon from '../assets/icons/user.svg';
+import Logout from '../assets/icons/logout.svg';
 
 const sidebar_menu = [
   {
@@ -15,6 +16,12 @@ const sidebar_menu = [
     icon: ShippingIcon,
     path: '/progress',
     title: 'Progress',
+  },
+  {
+    id: 3,
+    icon: Logout,
+    path: '/logout',
+    title: 'Logout',
   },
 ];
 
